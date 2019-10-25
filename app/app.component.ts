@@ -7,30 +7,28 @@ import { Component, OnInit } from "@angular/core";
 })
 export class AppComponent implements OnInit {
   name = "Angular 5";
-  selectedCountry: any;
-
+   
+  selected: any;
   cities = {};
 
   countries = [
     {
       id: 1,
-      name: "France",
-      cities: ["Paris", "Marseille", "Nice"]
+      name: "Sri lanka"
     },
     {
       id: 2,
-      name: "Germany",
-      cities: ["Hamburg", "Berlin", "Munich"]
+      name: "India"
     },
+
     {
       id: 3,
-      name: "Italy",
-      cities: ["Roma", "Milan", "Napoli"]
+      name: "Japan"
     }
   ];
 
   ngOnInit() {
-    this.cities = this.countries.filter(x => x.id == 1)[0].cities;
+ 
   }
 
   onChange(deviceValue) {
@@ -40,6 +38,6 @@ export class AppComponent implements OnInit {
       "name",
       this.countries[deviceValue].name
     );
-    this.cities = this.countries.filter(x => x.id == deviceValue)[0].cities;
-  }
+    this.selected = this.countries[deviceValue - 1].name;
+   }
 }
